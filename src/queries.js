@@ -54,6 +54,36 @@ const connectionConfig = {
       }
     
       // more functions forupdating departments, roles, and employees
+
+      // Add this function inside the Queries class
+async addDepartment(name) {
+  const query = `
+    INSERT INTO department (name)
+    VALUES (?)
+  `;
+  await this.connection.query(query, [name]);
+}
+
+// Add this function inside the Queries class
+async addEmployee(firstName, lastName, roleId, managerId) {
+  const query = `
+    INSERT INTO employee (first_name, last_name, role_id, manager_id)
+    VALUES (?, ?, ?, ?)
+  `;
+  await this.connection.query(query, [firstName, lastName, roleId, managerId]);
+}
+
+// Add this function inside the Queries class
+async updateEmployeeRole(employeeId, roleId) {
+  const query = `
+    UPDATE employee
+    SET role_id = ?
+    WHERE id = ?
+  `;
+  await this.connection.query(query, [roleId, employeeId]);
+}
+
+
     }
     
     module.exports = Queries;

@@ -126,6 +126,20 @@ async function mainMenu() {
   
   
                 case 'Update an employee role':
+                    const updateData = await inquirer.prompt([
+                        {
+                          type: 'number',
+                          name: 'employeeId',
+                          message: 'Enter the employee ID to update:',
+                        },
+                        {
+                          type: 'number',
+                          name: 'newRoleId',
+                          message: 'Enter the new role ID for the employee:',
+                        },
+                      ]);
+                      await queries.updateEmployeeRole(updateData.employeeId, updateData.newRoleId);
+                      console.log('Employee role updated successfully.');
               
                     break;
               

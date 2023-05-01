@@ -87,6 +87,10 @@ async updateEmployeeManager(employeeId, managerId) {
   await this.connection.query('UPDATE employee SET manager_id = ? WHERE id = ?', [managerId, employeeId]);
 }
 
+async addRole(title, salary, department_id) {
+  await this.connection.query('INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)', [title, salary, department_id]);
+}
+
 
     }
     

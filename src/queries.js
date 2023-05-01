@@ -55,7 +55,7 @@ const connectionConfig = {
     
       // more functions forupdating departments, roles, and employees
 
-      // Add this function inside the Queries class
+      
 async addDepartment(name) {
   const query = `
     INSERT INTO department (name)
@@ -64,7 +64,7 @@ async addDepartment(name) {
   await this.connection.query(query, [name]);
 }
 
-// Add this function inside the Queries class
+
 async addEmployee(firstName, lastName, roleId, managerId) {
   const query = `
     INSERT INTO employee (first_name, last_name, role_id, manager_id)
@@ -73,7 +73,7 @@ async addEmployee(firstName, lastName, roleId, managerId) {
   await this.connection.query(query, [firstName, lastName, roleId, managerId]);
 }
 
-// Add this function inside the Queries class
+
 async updateEmployeeRole(employeeId, roleId) {
   const query = `
     UPDATE employee
@@ -81,6 +81,10 @@ async updateEmployeeRole(employeeId, roleId) {
     WHERE id = ?
   `;
   await this.connection.query(query, [roleId, employeeId]);
+}
+
+async updateEmployeeManager(employeeId, managerId) {
+  await this.connection.query('UPDATE employee SET manager_id = ? WHERE id = ?', [managerId, employeeId]);
 }
 
 

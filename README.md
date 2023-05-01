@@ -26,7 +26,7 @@ A command-line application that allows users to manage an organization's employe
 To use this application, run 'node src/app.js' in your terminal, and answer the prompts to manage your organization's employee information.
 
 ## Demo link
-(Add your demo link here if available)
+https://clipchamp.com/watch/aVuDb0LnKfd
 
 ## License
 
